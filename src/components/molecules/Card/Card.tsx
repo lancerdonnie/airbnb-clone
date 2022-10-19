@@ -92,8 +92,8 @@ export const Card = (props: Props) => {
         </span>
         <span
           className={cx(
-            'absolute translate-y-[-50%] top-[50%] left-[12px] invisible group-hover:visible',
-            state === 0 && 'group-hover:invisible'
+            'absolute translate-y-[-50%] top-[50%] left-[12px] opacity-0 group-hover:opacity-100 transition duration-[250ms] hover:scale-[1.09]',
+            state === 0 && 'opacity-0'
           )}
           onClick={() => slide('left')}
         >
@@ -101,8 +101,8 @@ export const Card = (props: Props) => {
         </span>
         <span
           className={cx(
-            'absolute translate-y-[-50%] top-[50%] right-[12px] invisible group-hover:visible',
-            state === images.length - 1 && 'group-hover:invisible'
+            'absolute translate-y-[-50%] top-[50%] right-[12px] opacity-0 group-hover:opacity-100 transition duration-[250ms] hover:scale-[1.09]',
+            state === images.length - 1 && 'opacity-0'
           )}
           onClick={() => slide('right')}
         >

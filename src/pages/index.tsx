@@ -27,9 +27,9 @@ const Home: NextPage = () => {
           onClick={(categoryId) => setCategoryId(categoryId)}
           categoryId={categoryId}
         />
-        <div className="flex items-center h-12 border-solid border-[1px] border-[#DDDDDD] rounded-xl px-4 ml-6">
+        <div className="flex items-center h-12 border-solid border-[1px] border-alt-3 rounded-xl px-4 ml-6 text-xs font-semibold text-alt-4 cursor-pointer">
           <FilterIcon />
-          Filters
+          <span className="ml-1">Filters</span>
         </div>
       </div>
 

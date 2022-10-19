@@ -8,7 +8,7 @@ type Props = {
 
 export const ShowMapButton = ({ showMap }: Props) => {
   return (
-    <div className="flex items-center bg-alt-4 text-white py-[14px] px-[19px] rounded-3xl cursor-pointer">
+    <div className="flex items-center bg-alt-4 text-white py-[14px] px-[19px] rounded-3xl cursor-pointer hover:shadow-6 hover:scale-[1.04] transition-transform duration-[250ms] ease-in">
       <span className="mr-2 text-sm font-semibold">
         Show {showMap ? 'list' : 'map'}
       </span>

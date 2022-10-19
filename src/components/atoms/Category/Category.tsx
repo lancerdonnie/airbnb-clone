@@ -13,8 +13,7 @@ export const Category = (props: Props) => {
   return (
     <div
       className={cx(
-        // 'flex flex-col gap-y-2 items-center text-alt-2 text-xs hover:font-semibold hover:text-black border-b-black border-b-2 rounded-b-lg',
-        'flex flex-col gap-y-2 items-center text-alt-2 text-xs hover:font-semibold',
+        'group flex flex-col gap-y-2 items-center text-alt-2 text-xs transition ease-in duration-200 font-semibold',
         !selected &&
           'hover:after:h-[2px] hover:after:w-full hover:after:rounded-lg hover:after:bg-alt-3',
         selected &&
@@ -27,11 +26,11 @@ export const Category = (props: Props) => {
         src={image}
         alt="category image"
         className={cx(
-          'h-6 w-6 hover:contrast-100',
+          'h-6 w-6 group-hover:contrast-100',
           selected ? 'contrast-100' : 'contrast-[calc(13/44)]'
         )}
       />
-      <span className={cx('whitespace-nowrap', selected && 'font-semibold')}>
+      <span className={cx('whitespace-nowrap group-hover:text-black')}>
         {category}
       </span>
     </div>
