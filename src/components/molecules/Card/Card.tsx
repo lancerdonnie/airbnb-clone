@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DirectionButton, LikeButton } from 'components/atoms';
+import { DirectionButton, LikeButton, SliderDots } from 'components/atoms';
 import styles from './Card.module.scss';
 import cx from 'classnames';
-import { date } from 'utils';
-import Star from 'assets/icons/star.svg';
 import { useApp } from 'context/AppContext';
 import Image from 'next/image';
+import { CardDetails } from './CardDetails/CardDetails';
 
-type Props = {
+export type CardProps = {
   id: number;
   images: string[];
   price: string;
@@ -20,21 +19,9 @@ type Props = {
   categoryId: number;
 };
 
-export const Card = (props: Props) => {
-  const {
-    images,
-    dateFrom,
-    dateTo,
-    host,
-    name,
-    price,
-    rating,
-    id,
-    liked,
-    categoryId,
-  } = props;
+export const Card = (props: CardProps) => {
+  const { images, id, liked, categoryId } = props;
   const [state, setState] = useState(0);
-  const [like, setLike] = useState(false);
 
   const sliderRef = useRef<HTMLDivElement>(null);
   const { likeListing } = useApp();
@@ -112,38 +99,9 @@ export const Card = (props: Props) => {
         >
           <DirectionButton direction="right" />
         </span>
-        <span className="absolute translate-x-[-50%] left-[50%] bottom-[12px] flex">
-          {images.map((_, i) => {
-            return (
-              <div
-                key={i}
-                className={cx(
-                  'h-[6px] w-[6px] rounded-full bg-white mx-[2.5px]',
-                  state !== i && 'opacity-60'
-                )}
-              ></div>
-            );
-          })}
-        </span>
+        <SliderDots length={images.length} opacityAtIndex={state} />
       </div>
-      <div className="mt-3 flex gap-x-2 justify-between">
-        <div className="text-[15px]">
-          <div className="font-semibold">{name}</div>
-          <div className="text-alt-2">{host}</div>
-          <div className="text-alt-2">
-            {date(dateFrom).format('MMM')} {date(dateFrom).format('DD')}-
-            {date(dateTo).format('DD')}
-          </div>
-          <div className="mt-[6px]">
-            <span className="font-semibold">${price}</span> night
-          </div>
-        </div>
-        <div>
-          <div className="flex items-center">
-            <Star /> <span className="ml-1">{rating}</span>
-          </div>
-        </div>
-      </div>
+      <CardDetails {...props} />
     </div>
   );
 };

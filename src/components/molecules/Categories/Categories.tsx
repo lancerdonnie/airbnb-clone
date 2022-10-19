@@ -1,11 +1,4 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
-import data from 'lib/data.json';
+import React, { useCallback, useRef, useState } from 'react';
 import { Category, DirectionButton } from 'components/atoms';
 import cx from 'classnames';
 import debounce from 'just-debounce-it';
@@ -86,7 +79,6 @@ export const Categories = ({ onClick, categoryId }: Props) => {
           'absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white',
           'after:absolute after:w-10 after:h-full after:bg-gradient-to-r after:from-white after:to-white/0 after:left-[100%]',
           !showLeft && 'invisible'
-          //   state === 0 && 'group-hover:invisible'
         )}
         onClick={slide('left')}
       >
@@ -97,7 +89,6 @@ export const Categories = ({ onClick, categoryId }: Props) => {
           'absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white right-0',
           'after:absolute after:w-10 after:h-full after:bg-gradient-to-l after:from-white after:to-white/0 after:right-[100%]',
           !showRight && 'invisible'
-          //   state === images.length - 1 && 'group-hover:invisible'
         )}
         onClick={slide('right')}
       >
