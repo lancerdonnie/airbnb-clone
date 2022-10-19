@@ -1,0 +1,20 @@
+.slider {
+  @apply aspect-[20/19] rounded-xl overflow-clip relative;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.slide {
+  @apply object-cover align-bottom h-full w-full;
+
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
