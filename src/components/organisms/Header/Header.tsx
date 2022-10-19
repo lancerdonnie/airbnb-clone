@@ -11,10 +11,10 @@ type Props = {};
 export const Header = (props: Props) => {
   return (
     <header className="h-20 flex items-center justify-between px-20 shadow-3 flex-shrink-0">
-      <div className="basis-[140px] text-[#FF385C]">
+      <div className="basis-[140px] flex-grow flex-shrink-0 text-[#FF385C]">
         <LogoFull />
       </div>
-      <div className="rounded-[40px] h-12 shadow-1 border-solid border-[1px] border-[#DDDDDD] flex justify-center items-center px-2 text-sm font-semibold">
+      <div className="flex-grow-0 flex-shrink basis-auto rounded-[40px] h-12 shadow-1 border-solid border-[1px] border-[#DDDDDD] flex justify-center items-center px-2 text-sm font-semibold">
         <span className="inline-block px-4">Anywhere</span>
         <span className="h-6 w-[1px] bg-[#DDDDDD]"></span>
         <span className="inline-block px-4">Any week</span>
@@ -27,7 +27,7 @@ export const Header = (props: Props) => {
           <SearchButton />
         </span>
       </div>
-      <nav className="flex items-center cursor-pointer">
+      <nav className="flex items-center cursor-pointer basis-[140px] flex-grow flex-shrink-0 justify-end">
         <span className="p-3 font-semibold text-sm">Become a Host</span>
         <span className="p-3 cursor-pointer">
           <Globe />

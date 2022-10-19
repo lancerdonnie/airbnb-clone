@@ -18,7 +18,7 @@ type Props = {
 
 export const Categories = ({ onClick, categoryId }: Props) => {
   const [showLeft, setShowLeft] = useState(false);
-  const [showRight, setShowRight] = useState(false);
+  const [showRight, setShowRight] = useState(true);
 
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +38,7 @@ export const Categories = ({ onClick, categoryId }: Props) => {
         setShowLeft(true);
         setShowRight(true);
       }
-    }, 150),
+    }, 100),
     []
   );
 
@@ -85,7 +85,7 @@ export const Categories = ({ onClick, categoryId }: Props) => {
         className={cx(
           'absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white',
           'after:absolute after:w-10 after:h-full after:bg-gradient-to-r after:from-white after:to-white/0 after:left-[100%]',
-          !showLeft && 'hidden'
+          !showLeft && 'invisible'
           //   state === 0 && 'group-hover:invisible'
         )}
         onClick={slide('left')}
@@ -95,8 +95,8 @@ export const Categories = ({ onClick, categoryId }: Props) => {
       <span
         className={cx(
           'absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white right-0',
-          'after:absolute after:w-10 after:h-full after:bg-gradient-to-r after:from-white after:to-white/0 after:right-[100%]',
-          !showRight && 'hidden'
+          'after:absolute after:w-10 after:h-full after:bg-gradient-to-l after:from-white after:to-white/0 after:right-[100%]',
+          !showRight && 'invisible'
           //   state === images.length - 1 && 'group-hover:invisible'
         )}
         onClick={slide('right')}
