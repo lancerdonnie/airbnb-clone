@@ -5,6 +5,7 @@ import cx from 'classnames';
 import { date } from 'utils';
 import Star from 'assets/icons/star.svg';
 import { useApp } from 'context/AppContext';
+import Image from 'next/image';
 
 type Props = {
   id: number;
@@ -75,11 +76,14 @@ export const Card = (props: Props) => {
         >
           {images.map((image, i) => {
             return (
-              <img
-                src={image.replace('/pictures/', '/im/pictures/')}
+              <Image
                 key={i}
-                className={styles.slide}
-                alt="house image"
+                src={image.replace('/pictures/', '/im/pictures/')}
+                alt="Listing image"
+                layout="fill"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
               />
             );
           })}

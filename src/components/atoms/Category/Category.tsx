@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import Image from 'next/image';
 
 type Props = {
   image: string;
@@ -22,14 +23,14 @@ export const Category = (props: Props) => {
       )}
       onClick={onClick}
     >
-      <img
-        src={image}
-        alt="category image"
+      <span
         className={cx(
           'h-6 w-6 group-hover:contrast-100',
           selected ? 'contrast-100' : 'contrast-[calc(13/44)]'
         )}
-      />
+      >
+        <Image src={image} alt="category image" layout="fill" />
+      </span>
       <span className={cx('whitespace-nowrap group-hover:text-black')}>
         {category}
       </span>
