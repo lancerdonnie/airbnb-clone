@@ -1,20 +1,24 @@
-.slider {
-  @apply aspect-[20/19] rounded-xl overflow-clip relative;
+.container {
+  @apply relative cursor-pointer;
 
-  position: relative;
-  display: flex;
-  align-items: center;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-}
+  .slider {
+    @apply aspect-[20/19] rounded-xl overflow-clip relative;
 
-.slide {
-  @apply object-cover align-bottom h-full w-full;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
 
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .slide {
+    @apply h-full w-full relative;
+
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

@@ -54,8 +54,8 @@ export const Card = (props: CardProps) => {
   };
 
   return (
-    <div className="relative group">
-      <div className="relative group">
+    <div className={cx('group', styles.container)}>
+      <div className="relative">
         <div
           className={cx(styles.slider, 'hide-scroll')}
           data-slider
@@ -63,15 +63,18 @@ export const Card = (props: CardProps) => {
         >
           {images.map((image, i) => {
             return (
-              <Image
-                key={i}
-                src={image.replace('/pictures/', '/im/pictures/')}
-                alt="Listing image"
-                layout="fill"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-              />
+              <span key={i} className={styles.slide}>
+                <Image
+                  src={image.replace('/pictures/', '/im/pictures/')}
+                  alt="Listing image"
+                  layout="fill"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                  className={styles.slide}
+                  objectFit="cover"
+                />
+              </span>
             );
           })}
         </div>
@@ -84,7 +87,7 @@ export const Card = (props: CardProps) => {
         <span
           className={cx(
             'absolute translate-y-[-50%] top-[50%] left-[12px] opacity-0 group-hover:opacity-100 transition duration-[250ms] hover:scale-[1.09]',
-            state === 0 && 'opacity-0'
+            state === 0 && 'opacity-0 group-hover:opacity-0'
           )}
           onClick={() => slide('left')}
         >
@@ -93,7 +96,7 @@ export const Card = (props: CardProps) => {
         <span
           className={cx(
             'absolute translate-y-[-50%] top-[50%] right-[12px] opacity-0 group-hover:opacity-100 transition duration-[250ms] hover:scale-[1.09]',
-            state === images.length - 1 && 'opacity-0'
+            state === images.length - 1 && 'opacity-0 group-hover:opacity-0'
           )}
           onClick={() => slide('right')}
         >

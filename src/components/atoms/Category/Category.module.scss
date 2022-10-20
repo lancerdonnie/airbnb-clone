@@ -1,0 +1,21 @@
+.container {
+  @apply flex flex-col gap-y-2 items-center text-alt-2 text-xs transition ease-in duration-200 font-semibold;
+  &.container_selected {
+    @apply hover:after:h-[2px] hover:after:w-full hover:after:rounded-lg hover:after:bg-alt-3 cursor-pointer;
+  }
+  &.container_unselected {
+    @apply after:h-[2px] after:w-full after:rounded-lg after:bg-black text-black;
+  }
+  span.image {
+    @apply h-6 w-6 group-hover:contrast-100 relative;
+  }
+  span.image_selected {
+    @apply contrast-100;
+  }
+  span.image_unselected {
+    @apply contrast-[calc(13/44)];
+  }
+  span.title {
+    @apply whitespace-nowrap group-hover:text-black;
+  }
+}

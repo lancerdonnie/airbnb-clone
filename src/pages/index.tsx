@@ -6,20 +6,21 @@ import { Footer, Header } from 'components/organisms';
 import { Categories } from 'components/molecules';
 import { FilterButton, ShowMapButton } from 'components/atoms';
 import GoogleMapReact from 'google-map-react';
+import styles from 'styles/Home.module.scss';
 
 const Home: NextPage = () => {
   const [categoryId, setCategoryId] = useState(1);
   const [showMap, setShowMap] = useState(false);
 
   return (
-    <div className="h-screen relative overflow-hidden flex flex-col">
+    <div className={styles.container}>
       <Head>
         <title>Airbnb clone</title>
         <meta name="description" content="Airbnb clone" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="flex px-10 md:px-20 pt-5">
+      <div className={styles.categories}>
         <Categories
           onClick={(categoryId) => setCategoryId(categoryId)}
           categoryId={categoryId}
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
       {!showMap ? (
         <CardGrid categoryId={categoryId} />
       ) : (
-        <div className="flex-grow">
+        <div className={styles.map}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string,
@@ -43,10 +44,7 @@ const Home: NextPage = () => {
           />
         </div>
       )}
-      <div
-        className="absolute left-[50%] translate-x-[-50%] bottom-[88px] "
-        onClick={() => setShowMap(!showMap)}
-      >
+      <div className={styles.showmap} onClick={() => setShowMap(!showMap)}>
         <ShowMapButton showMap={showMap} />
       </div>
       <Footer />

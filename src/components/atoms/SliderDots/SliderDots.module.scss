@@ -1,0 +1,9 @@
+.container {
+  @apply absolute translate-x-[-50%] left-[50%] bottom-[12px] flex;
+  & > div {
+    @apply h-[6px] w-[6px] rounded-full bg-white mx-[2.5px];
+  }
+  div.opacity_at_index {
+    @apply opacity-60;
+  }
+}

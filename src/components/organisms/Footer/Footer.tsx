@@ -1,11 +1,12 @@
 import React from 'react';
 import Globe from 'assets/icons/globe.svg';
 import ArrowUp from 'assets/icons/arrow-up.svg';
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
   return (
-    <div className="px-10 md:px-20 py-3 shadow-4 flex justify-between items-center text-sm">
-      <div className="flex items-center justify-center leading-[18px]">
+    <div className={styles.container}>
+      <div className={styles.left_footer}>
         <span className="mr-2">© 2022 Airbnb, Inc.</span>
         <span>.</span>
         <span className="cursor-pointer hover:underline mx-2">Privacy</span>
@@ -18,7 +19,7 @@ export const Footer = () => {
           Destinations
         </span>
       </div>
-      <div className="flex items-center font-semibold">
+      <div className={styles.right_footer}>
         <Globe />
         <span className="ml-2 cursor-pointer hover:underline">
           English (US)

@@ -3,6 +3,7 @@ import { Category, DirectionButton } from 'components/atoms';
 import cx from 'classnames';
 import debounce from 'just-debounce-it';
 import { useApp } from 'context/AppContext';
+import styles from './Categories.module.scss';
 
 type Props = {
   onClick: (categoryId: number) => void;
@@ -59,9 +60,9 @@ export const Categories = ({ onClick, categoryId }: Props) => {
   };
 
   return (
-    <div className="relative overflow-hidden">
+    <div className={styles.container}>
       <div
-        className={cx('flex overflow-scroll gap-x-8 w-full', 'hide-scroll')}
+        className={cx('hide-scroll', styles.categories)}
         ref={sliderRef}
         onScroll={(e) => fn(e.target as HTMLDivElement)}
       >
@@ -75,21 +76,13 @@ export const Categories = ({ onClick, categoryId }: Props) => {
         ))}
       </div>
       <span
-        className={cx(
-          'absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white',
-          'after:absolute after:w-10 after:h-full after:bg-gradient-to-r after:from-white after:to-white/0 after:left-[100%]',
-          !showLeft && 'invisible'
-        )}
+        className={cx(styles.left, !showLeft && 'invisible')}
         onClick={slide('left')}
       >
         <DirectionButton direction="left" className="border-[1px]" />
       </span>
       <span
-        className={cx(
-          'absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white right-0',
-          'after:absolute after:w-10 after:h-full after:bg-gradient-to-l after:from-white after:to-white/0 after:right-[100%]',
-          !showRight && 'invisible'
-        )}
+        className={cx(styles.right, !showRight && 'invisible')}
         onClick={slide('right')}
       >
         <DirectionButton direction="right" />

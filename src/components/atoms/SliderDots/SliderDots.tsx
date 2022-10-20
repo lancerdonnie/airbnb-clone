@@ -1,5 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
+import styles from './SliderDots.module.scss';
 
 type Props = {
   length: number;
@@ -8,15 +9,12 @@ type Props = {
 
 export const SliderDots = ({ length, opacityAtIndex }: Props) => {
   return (
-    <span className="absolute translate-x-[-50%] left-[50%] bottom-[12px] flex">
+    <span className={styles.container}>
       {Array.from({ length }).map((_, i) => {
         return (
           <div
             key={i}
-            className={cx(
-              'h-[6px] w-[6px] rounded-full bg-white mx-[2.5px]',
-              opacityAtIndex === i && 'opacity-60'
-            )}
+            className={cx(opacityAtIndex !== i && styles.opacity_at_index)}
           ></div>
         );
       })}

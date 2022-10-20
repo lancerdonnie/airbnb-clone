@@ -1,0 +1,14 @@
+.container {
+  @apply relative overflow-hidden;
+  .categories {
+    @apply flex overflow-scroll gap-x-8 w-full;
+  }
+  .left {
+    @apply absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white;
+    @apply after:absolute after:w-10 after:h-full after:bg-gradient-to-r after:from-white after:to-white/0 after:left-[100%];
+  }
+  .right {
+    @apply absolute translate-y-[-50%] top-[50%] h-full flex items-center opacity-100 bg-white right-0;
+    @apply after:absolute after:w-10 after:h-full after:bg-gradient-to-l after:from-white after:to-white/0 after:right-[100%];
+  }
+}

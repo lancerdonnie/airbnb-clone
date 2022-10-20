@@ -1,0 +1,15 @@
+.container {
+  @apply h-screen relative overflow-hidden flex flex-col;
+
+  .categories {
+    @apply flex px-10 md:px-20 pt-5;
+  }
+
+  .map {
+    @apply flex-grow;
+  }
+
+  .showmap {
+    @apply absolute left-[50%] translate-x-[-50%] bottom-[88px];
+  }
+}
